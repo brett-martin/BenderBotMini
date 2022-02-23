@@ -38,7 +38,7 @@ public:
 
     // void showExpression(ExpressionNames name);                              // Show an expression spanning all segments
 
-    void showNumber(int number, int segment);           // Show a single digit on a single segment
+    void showNumber(int number);                        // Show a 1-4 digit number
 
     void showText(const String text);
 

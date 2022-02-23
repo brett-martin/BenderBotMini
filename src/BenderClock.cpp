@@ -15,6 +15,7 @@ BenderClock::BenderClock(byte displayAddress, int menuButton, int upButton, int 
 }
 
 void BenderClock::init(byte displayAddress, int menuButton, int upButton, int downButton, int antenna) {
+    _settings = new BenderSetting();
     _buttonMenu = new Button(menuButton); 
     _buttonDown = new Button(downButton); 
     _buttonUp = new Button(upButton);  
@@ -63,6 +64,22 @@ void BenderClock::showText(String text) {
     _display->showText(text);
 }
 
+void BenderClock::showNumber(int number) {
+    _display->showNumber(number);
+}
+
 void BenderClock::setTime(int year, int month, int day, int hour, int min, int sec) {  
     _clock->setTime( year, month, day, hour, min, sec );
+}
+
+BenderSetting::bSetting BenderClock::readSetting(BenderSetting::settingName setting) {
+    return _settings->readSetting(setting);
+}
+
+void BenderClock::writeSetting(BenderSetting::settingName setting, int value) {
+    _settings->writeSetting(setting, value);
+}
+
+void BenderClock::setBrightness(uint8_t value) {
+    _display->setBrightness(value);
 }
