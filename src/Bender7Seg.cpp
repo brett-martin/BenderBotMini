@@ -45,19 +45,10 @@ void Bender7Seg::clear() {
   display.clear();
 }
 
-// void Bender7Seg::showExpression(ExpressionNames name) {
-//     colonOn(false);
-//     clear();
-//     _segments[0]->drawBitmap(0, 0, Expressions[name][0], 8, 16, LED_ON);
-//     _segments[1]->drawBitmap(0, 0, Expressions[name][1], 8, 16, LED_ON);
-//     _segments[2]->drawBitmap(0, 0, Expressions[name][2], 8, 16, LED_ON);
-//     _segments[3]->drawBitmap(0, 0, Expressions[name][3], 8, 16, LED_ON);
-  
-//     writeDisplay();
-// }
-
-void Bender7Seg::showNumber(int number, int segment) {
-//  _segments[segment]->drawBitmap(0, 0, Numbers[number], 8, 16, LED_ON);
+void Bender7Seg::showNumber(int number) {
+  display.print(number, DEC);
+  display.drawColon(false);
+  display.writeDisplay();
 }
 
 void Bender7Seg::showTime(int time, bool colon) {
